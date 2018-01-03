@@ -84,10 +84,9 @@ ggplot(data = data4, aes(as.factor(year), Emissions)) +
 library(dplyr)
 library(ggplot2)
 
-data5 <- NEI %>%
-    filter(type == "ON-ROAD" & fips == "24510" )
-
-ggplot(data = data5, aes(x = as.factor(year), y = Emissions)) +
+NEI %>%
+  filter(type == "ON-ROAD" & fips == "24510" ) %>%
+  ggplot(aes(x = as.factor(year), y = Emissions)) +
     geom_bar(stat = "identity", fill = "lightblue") +
     xlab(label = "Year") +
     ylab(label = "Amount of PM2.5 emitted (in tons)") +
@@ -102,16 +101,14 @@ ggplot(data = data5, aes(x = as.factor(year), y = Emissions)) +
 # County, California (fips == "06037"). Which city has seen 
 # greater changes over time in motor vehicle emissions?
 
-data6 <- NEI %>%
-    filter(type == "ON-ROAD" & (fips == "24510" | fips == "06037"))
-
-ggplot(data = data6, aes(x = as.factor(year), y = Emissions)) +
+NEI %>%
+  filter(type == "ON-ROAD" & (fips == "24510" | fips == "06037")) %>%
+  ggplot(aes(x = as.factor(year), y = Emissions)) +
     geom_bar(stat = "identity", fill = "lightblue3") +
     xlab(label = "Year") +
     facet_grid(. ~ as.factor(fips)) +
     ylab(label = "Amount of PM2.5 emitted (in tons)") +
     labs(title = "Motor vehicle source emissions in Baltimore (24510) and LA (06037)") +
     theme_light()
-
 
 
