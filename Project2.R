@@ -1,4 +1,4 @@
-setwd("C:/Users/user/Desktop/Course Project 2")
+
 source("data.R")
 
 ########################################
@@ -41,8 +41,8 @@ barplot(data2$Emissions,
 # Of the four types of sources indicated by the type 
 # (point, nonpoint, onroad, nonroad) variable, which of these 
 # four sources have seen decreases in emissions from 
-# 1999–2008 for Baltimore City? Which have seen increases 
-# in emissions from 1999–2008? Use the ggplot2 plotting 
+# 1999â€“2008 for Baltimore City? Which have seen increases 
+# in emissions from 1999â€“2008? Use the ggplot2 plotting 
 # system to make a plot answer this question.
 
 library(ggplot2)
@@ -62,7 +62,7 @@ NEI %>%
 # Plot 4
 
 # Across the United States, how have emissions from coal 
-# combustion-related sources changed from 1999–2008?
+# combustion-related sources changed from 1999â€“2008?
 
 data4 <- inner_join(x = NEI, y = SCC, "SCC") %>%
     filter(grepl("coal", Short.Name, ignore.case = TRUE) )
@@ -79,7 +79,7 @@ ggplot(data = data4, aes(as.factor(year), Emissions)) +
 # Plot 5
 
 # How have emissions from motor vehicle sources 
-# changed from 1999–2008 in Baltimore City?
+# changed from 1999â€“2008 in Baltimore City?
 
 library(dplyr)
 library(ggplot2)
